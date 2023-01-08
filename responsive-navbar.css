@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+/*Same for all css*/
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: inherit;
+}
+:root{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+
+/*Setting the padding to 1rem and display style to flex*/
+.navbar-container{
+    background: #00004d;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Setting the min-width and min-height of the logo container containing logo and menu-bar*/
+.logo-container{
+    min-height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*display: flex is just to center horizontally and vertically the text "LOGO". Once logo is placed in place of text, flex properties can be removed*/
+.logo{
+    border: 2px solid white;
+    height: 3rem;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(10, 65, 55);
+    cursor: pointer;
+}
+/*Height same as logo-container height which is 3rem. Hence setting padding to 1rem creates a square menu-bar because font-size is 1 rem*/
+.menu-bar{
+    height: 100%;
+    padding: 1rem;
+    display: none;
+    align-items: center;
+    cursor: pointer;
+}
+.menu-bar:hover{
+    background-color: #04AA6D;
+    border-radius: 5px;
+}
+
+.nav-items-container ul{
+    list-style-type: none;
+    display: flex;
+}
+/*line-height: 3rem instead of padding: 1rem because the height of navbar-container flickers when resizing scren incase of padding: 1rem;*/
+.nav-items-container ul li a{
+    min-width: 90px;
+    line-height: 3rem;
+    display: block;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.nav-items-container ul li a:hover{
+    background: white;
+    color: #00004d;
+}
+
+/*Responsvie Part for width less than 768px*/
+@media screen and (max-width: 768px){
+    .navbar-container{
+        display: block;
+    }
+    .menu-bar{
+        display: block;
+    }
+    .logo-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-items-container ul{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+    /*class="display-none" is added to the ul which sets the display to none whenever the menu bar is clicked odd number of times and on even number of times, it gets removed*/
+    .nav-items-container ul.display-none{
+        display: none;
+    }
+}
+
+/*Responsive for widht less than 468px*/
+@media screen and (max-width: 468px){
+    .nav-items-container ul{
+        display: block;
+    }
+    .nav-items-container ul li a{
+        width: 100%;
+        text-align: justify;
+        padding-left: 1rem;
+    }
+}
